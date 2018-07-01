@@ -1,0 +1,88 @@
+<div class="center">
+
+    <form id="msform">
+     <fieldset>  
+        <h2 class="fs-title">Add Products</h2>
+        <br>
+        <table class="basic">
+          <tr>
+            <label style="font-weight: 700; color: chocolate">Basic Information</label>
+          </tr>
+          <tr>
+            <td>
+              <div class="wrap-input100">
+                <label>Product Name*</label>
+                <input class="form-control" type="text" name="name" id="name" required minlength="3" maxlength="20"
+                 [(ngModel)]="name" #fnamectrl="ngModel">
+              </div>
+              <span class="err" *ngIf="fnamectrl.errors?.required && fnamectrl.touched">
+                  Firstname is required
+                </span>
+              <span class="err" *ngIf="fnamectrl.errors?.minlength">
+                  Min length 3 characters  
+              </span>
+              <span class="err" *ngIf="fnamectrl.errors?.maxlength">
+                  Max length 10 characters  
+              </span>
+              <span class="err" *ngIf="fnamectrl.valid">
+  
+              </span>
+            </td>
+            <td class="info">
+              <div class="wrap-input100">
+                <label>Price*</label>
+                <input class="form-control" type="text" name="price" id="price" maxlength="5" required
+                 [(ngModel)]="price" #pricectrl="ngModel">
+              </div>
+              <span class="err" *ngIf="pricectrl.errors?.required && pricectrl.touched">
+                  Price is required
+                </span>
+              <span class="err" *ngIf="pricectrl.errors?.maxlength">
+                  Max length 5 characters  
+              </span>
+              <span class="err" *ngIf="pricectrl.valid">
+  
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="wrap-input100">
+                <label>Category*</label>
+                <input class="form-control" type="text" name="cat" id="cat" 
+                required  [(ngModel)]="cat" #catctrl="ngModel">
+              </div>
+              <span class="err" *ngIf="catctrl.errors?.required && catctrl.touched">
+                  Category is required
+                </span>
+                <span class="err" *ngIf="catctrl.errors?.pattern">
+                    Category is invalid
+                </span>
+                <span class="err" *ngIf="catctrl.valid"></span>
+            </td>
+            <td>
+                <div class="info">
+                  <label>Discount*</label>
+                  <input class="form-control" type="number" name="disc" id="disc"
+                   [(ngModel)]="disc" pattern="^[0-9]*" #discctrl="ngModel">
+                </div>
+                  <span class="err" *ngIf="discctrl.errors?.pattern">
+                       Discount is invalid
+                  </span>
+                  <span class="err" *ngIf="discctrl.valid"></span>
+              </td>
+          </tr>
+          <tr>
+            <td>
+
+            </td>
+            <td>
+              
+            </td>
+          </tr>
+        </table>
+        <input type="button" name="next" class="action-button" value="Next" />
+      </fieldset>
+
+    </form>
+  </div>
